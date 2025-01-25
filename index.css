@@ -16,6 +16,9 @@ nav{
     padding: 20px 0;
     gap: 10px;
 }
+.nav-img{
+    display: flex;
+}
 nav h2{
     font-size: 34px;
     font-weight: 800;
@@ -37,6 +40,19 @@ nav ul a:hover{
 }
 .colour{
     color: #FF5400;
+}
+label #open,
+label #close {
+    color: rgb(11, 11, 11);
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    display: none;
+}
+
+#check {
+    display: none;
 }
 /* navbar css end */
 
@@ -512,8 +528,14 @@ footer{
 }
 /* responsive mobile */
 @media screen and (max-width:576px) {
-   nav, nav ul , .banner2 , .st-flex , .nd-flex , .cartbody, .video, .form{
+    nav, nav ul ,.banner2 , .st-flex , .nd-flex , .cartbody, .video, .form{
         flex-direction: column;
+    }
+    .nav-img{
+        display: none;
+    }
+    nav ul li a{
+        color: black;
     }
     .cartbody{
         gap: 20px;
@@ -524,6 +546,55 @@ footer{
     nav ul{
         margin-left: 0;
         gap: 15px;
+    }
+    label #open {
+        display: block;
+        position: absolute;
+        left:  0;
+        cursor: pointer;
+        
+    }
+    #check:checked ~ ul {
+        left: 0;
+    }
+    ul {
+        position: fixed;
+        width: 50%;
+        height: 50vh;
+        background: rgb(252, 254, 254);
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.5s;
+        z-index: 1;
+    }
+    nav{
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+        background-color: rgb(251, 249, 249);
+        height: 50px;
+    }
+    nav ul li {
+        display: block;
+        margin: 0px 0; 
+        line-height: 60px;
+
+    }
+
+    nav ul li a {
+        font-size: 20px;
+    }
+    #check:checked ~ label #open {
+        display: none;
+    
+        cursor: pointer;
+    }
+
+    #check:checked~label #close {
+        display: block;
+        cursor: pointer;
+       
     }
     #buttons{
         width: 60%;
@@ -543,7 +614,12 @@ footer{
     .input, #option{
         margin: 10px 0;
     }
-
+    .banner1{
+        width: 90%;
+        position:relative;
+        top: 100px;
+        border-top-right-radius: 20px;
+    }
     .banner1 h1{
         font-size: 22px;
     }
